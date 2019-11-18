@@ -1,0 +1,70 @@
+﻿@model IEnumerable<miniproject.Models.Location>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+             @Html.DisplayNameFor(model => model.City)
+           
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Area)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@Html.ActionLink(@item.City, "DoctorView", "patients", new { id = item.Id }, null)</td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Area)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+@*<head>
+    @section scripts{
+        <script>
+
+            $(document).ready(function () {
+                var availableCities = [
+                    "Chennai",
+                    "Hyderabad",
+                    "Bengaluru",
+                    "Madhurai",
+                    "Pune"
+                ];
+                $("#Location").autocomplete({
+                    source: availableCities
+                });
+            });
+
+        </script>
+    }
+</head>
+
+    <body>
+        <div class="ui-widget">
+            <label for="Location">Location </label>
+            <input id="Location">
+        </div>
+
+
+    </body>
+    <div class="form-group">
+
+        <input type="submit" name="cmdsubmit" class="btn btn-outline-primary" />
+
+
+    </div>*@

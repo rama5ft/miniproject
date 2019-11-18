@@ -1,0 +1,66 @@
+﻿@model miniproject.Models.Doctor
+
+@{
+    ViewBag.Title = "DoctorView";
+}
+
+<h2>DoctorView</h2>
+
+<div>
+    <h4>Doctor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Location.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocEmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocEmailId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
