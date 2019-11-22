@@ -1,0 +1,21 @@
+﻿@model  miniproject.Models.Slot
+
+@{
+    ViewBag.Title = "SelectSlot";
+}
+
+<h2>SelectSlot</h2>
+
+
+<div class="container">
+    @using (Html.BeginForm("CreatePatientDetails", "Patients", FormMethod.Get))
+    {
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.LabelFor(c => c.TimeSlots)
+                @Html.DropDownListFor(c => c.TimeSlots, ViewBag.Slots as SelectList, "Please select", new { @class = "form-control", onchange = "document.forms[0].submit();" })
+            </div>
+          </div>
+    }
+          </div>

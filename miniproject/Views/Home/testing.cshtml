@@ -1,0 +1,13 @@
+﻿@model miniproject.Models.Location
+@{
+    ViewBag.Title = "testing";
+}
+
+<h2>testing</h2>
+
+
+<div class="form-group">
+    @Html.LabelFor(c => c.City)
+    @Html.DropDownListFor(c => c.City, ViewBag.City as SelectList, new { @class = "form-control" })
+    @*@Html.DropDownList("MemberShipType", null, new { @class = "form-control" })*@
+    @Html.ValidationMessageFor(c => c.City)

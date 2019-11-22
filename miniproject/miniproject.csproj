@@ -195,6 +195,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interface\ILogin.cs" />
+    <Compile Include="Interface\CommonInterface.cs" />
     <Compile Include="Migrations\201911150434346_CreatedfiveTables.cs" />
     <Compile Include="Migrations\201911150434346_CreatedfiveTables.Designer.cs">
       <DependentUpon>201911150434346_CreatedfiveTables.cs</DependentUpon>
@@ -219,6 +220,110 @@
     <Compile Include="Migrations\201911180842295_changedPropertyinEmployee.Designer.cs">
       <DependentUpon>201911180842295_changedPropertyinEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911181248362_RemovedAreaColumn.cs" />
+    <Compile Include="Migrations\201911181248362_RemovedAreaColumn.Designer.cs">
+      <DependentUpon>201911181248362_RemovedAreaColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911190339448_tablesdropped2.cs" />
+    <Compile Include="Migrations\201911190339448_tablesdropped2.Designer.cs">
+      <DependentUpon>201911190339448_tablesdropped2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911190340397_tablesadded2.cs" />
+    <Compile Include="Migrations\201911190340397_tablesadded2.Designer.cs">
+      <DependentUpon>201911190340397_tablesadded2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200314002_CreatedSpecializationAndRemovedSpecializationColumn.cs" />
+    <Compile Include="Migrations\201911200314002_CreatedSpecializationAndRemovedSpecializationColumn.Designer.cs">
+      <DependentUpon>201911200314002_CreatedSpecializationAndRemovedSpecializationColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200317214_AddedReferncekeySpecializationInDoctor.cs" />
+    <Compile Include="Migrations\201911200317214_AddedReferncekeySpecializationInDoctor.Designer.cs">
+      <DependentUpon>201911200317214_AddedReferncekeySpecializationInDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200345138_RemovedReferncekeySpecializationInDoctor.cs" />
+    <Compile Include="Migrations\201911200345138_RemovedReferncekeySpecializationInDoctor.Designer.cs">
+      <DependentUpon>201911200345138_RemovedReferncekeySpecializationInDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200345564_RemovedSpecialization.cs" />
+    <Compile Include="Migrations\201911200345564_RemovedSpecialization.Designer.cs">
+      <DependentUpon>201911200345564_RemovedSpecialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200346436_AddedColumnSpecialization.cs" />
+    <Compile Include="Migrations\201911200346436_AddedColumnSpecialization.Designer.cs">
+      <DependentUpon>201911200346436_AddedColumnSpecialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200507128_AddedColumnsinDoctor.cs" />
+    <Compile Include="Migrations\201911200507128_AddedColumnsinDoctor.Designer.cs">
+      <DependentUpon>201911200507128_AddedColumnsinDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200932392_changedprimaryKeysAndAddedRefernceTableInslots.cs" />
+    <Compile Include="Migrations\201911200932392_changedprimaryKeysAndAddedRefernceTableInslots.Designer.cs">
+      <DependentUpon>201911200932392_changedprimaryKeysAndAddedRefernceTableInslots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200938319_addedColumnInSlots.cs" />
+    <Compile Include="Migrations\201911200938319_addedColumnInSlots.Designer.cs">
+      <DependentUpon>201911200938319_addedColumnInSlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911200959142_addedColumnAndDeletedColumnInLogin.cs" />
+    <Compile Include="Migrations\201911200959142_addedColumnAndDeletedColumnInLogin.Designer.cs">
+      <DependentUpon>201911200959142_addedColumnAndDeletedColumnInLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911201117357_checking.cs" />
+    <Compile Include="Migrations\201911201117357_checking.Designer.cs">
+      <DependentUpon>201911201117357_checking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911201121168_check1.cs" />
+    <Compile Include="Migrations\201911201121168_check1.Designer.cs">
+      <DependentUpon>201911201121168_check1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911201155216_RemovedDataColumn.cs" />
+    <Compile Include="Migrations\201911201155216_RemovedDataColumn.Designer.cs">
+      <DependentUpon>201911201155216_RemovedDataColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911210324556_RemovedDoctorViewModel.cs" />
+    <Compile Include="Migrations\201911210324556_RemovedDoctorViewModel.Designer.cs">
+      <DependentUpon>201911210324556_RemovedDoctorViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911210745435_RemovedReferncekeyInslots.cs" />
+    <Compile Include="Migrations\201911210745435_RemovedReferncekeyInslots.Designer.cs">
+      <DependentUpon>201911210745435_RemovedReferncekeyInslots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911210749053_RemovedTAbleSlots.cs" />
+    <Compile Include="Migrations\201911210749053_RemovedTAbleSlots.Designer.cs">
+      <DependentUpon>201911210749053_RemovedTAbleSlots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911210749494_SlotTableAdded.cs" />
+    <Compile Include="Migrations\201911210749494_SlotTableAdded.Designer.cs">
+      <DependentUpon>201911210749494_SlotTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911211132013_removedtable.cs" />
+    <Compile Include="Migrations\201911211132013_removedtable.Designer.cs">
+      <DependentUpon>201911211132013_removedtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911211132418_tableAdded.cs" />
+    <Compile Include="Migrations\201911211132418_tableAdded.Designer.cs">
+      <DependentUpon>201911211132418_tableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911211141050_addingreferencetopatient.cs" />
+    <Compile Include="Migrations\201911211141050_addingreferencetopatient.Designer.cs">
+      <DependentUpon>201911211141050_addingreferencetopatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911211143022_removedpasswordinpatienttable.cs" />
+    <Compile Include="Migrations\201911211143022_removedpasswordinpatienttable.Designer.cs">
+      <DependentUpon>201911211143022_removedpasswordinpatienttable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911220747437_AddeddateColumn.cs" />
+    <Compile Include="Migrations\201911220747437_AddeddateColumn.Designer.cs">
+      <DependentUpon>201911220747437_AddeddateColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911220959001_ChangedPropertyInPatients.cs" />
+    <Compile Include="Migrations\201911220959001_ChangedPropertyInPatients.Designer.cs">
+      <DependentUpon>201911220959001_ChangedPropertyInPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911221050441_RemovedReferencesinSlots.cs" />
+    <Compile Include="Migrations\201911221050441_RemovedReferencesinSlots.Designer.cs">
+      <DependentUpon>201911221050441_RemovedReferencesinSlots.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -229,14 +334,17 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Slot.cs" />
+    <Compile Include="Models\Specialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\LoginRepositary.cs" />
+    <Compile Include="Repository\AllRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
+    <Compile Include="ViewModel\DoctorViewModel1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\BOOTSTRAP.COSMO.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
@@ -284,6 +392,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\136934.jpg" />
+    <Content Include="Images\136939.jpg" />
+    <Content Include="Images\44ba2a5d-9c88-4c4e-990b-847ed86c3feb-original.jpeg" />
+    <Content Include="Images\banner_image2.jpg" />
+    <Content Include="Images\circle-cropped %281%29.png" />
+    <Content Include="Images\circle-cropped %282%29.png" />
+    <Content Include="Images\circle-cropped %283%29.png" />
+    <Content Include="Images\circle-cropped %284%29.png" />
+    <Content Include="Images\circle-cropped %285%29.png" />
+    <Content Include="Images\circle-cropped.png" />
+    <Content Include="Images\download %281%29.jpg" />
+    <Content Include="Images\download %282%29.jpg" />
+    <Content Include="Images\download %283%29.jpg" />
+    <Content Include="Images\download.jpg" />
+    <Content Include="Images\download.png" />
+    <Content Include="Images\hcl4-k32G--621x414%40LiveMint_small.jpg" />
+    <Content Include="Images\login1.png" />
+    <Content Include="Images\login2.png" />
+    <Content Include="Images\login3.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -336,6 +463,14 @@
     <Content Include="Views\Home\LoginView.cshtml" />
     <Content Include="Views\Patients\locationView.cshtml" />
     <Content Include="Views\Patients\DoctorView.cshtml" />
+    <Content Include="Views\Patients\SpecialisationView.cshtml" />
+    <Content Include="Views\Patients\SearchDoctor.cshtml" />
+    <Content Include="Views\Home\testing.cshtml" />
+    <Content Include="Views\Patients\DoctorDetails.cshtml" />
+    <Content Include="Views\Patients\Index.cshtml" />
+    <Content Include="Views\Patients\SelectSlot.cshtml" />
+    <Content Include="Views\Patients\Timings.cshtml" />
+    <Content Include="Views\Patients\CreatePatientDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -371,6 +506,84 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911180842295_changedPropertyinEmployee.resx">
       <DependentUpon>201911180842295_changedPropertyinEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911181248362_RemovedAreaColumn.resx">
+      <DependentUpon>201911181248362_RemovedAreaColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190339448_tablesdropped2.resx">
+      <DependentUpon>201911190339448_tablesdropped2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911190340397_tablesadded2.resx">
+      <DependentUpon>201911190340397_tablesadded2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200314002_CreatedSpecializationAndRemovedSpecializationColumn.resx">
+      <DependentUpon>201911200314002_CreatedSpecializationAndRemovedSpecializationColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200317214_AddedReferncekeySpecializationInDoctor.resx">
+      <DependentUpon>201911200317214_AddedReferncekeySpecializationInDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200345138_RemovedReferncekeySpecializationInDoctor.resx">
+      <DependentUpon>201911200345138_RemovedReferncekeySpecializationInDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200345564_RemovedSpecialization.resx">
+      <DependentUpon>201911200345564_RemovedSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200346436_AddedColumnSpecialization.resx">
+      <DependentUpon>201911200346436_AddedColumnSpecialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200507128_AddedColumnsinDoctor.resx">
+      <DependentUpon>201911200507128_AddedColumnsinDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200932392_changedprimaryKeysAndAddedRefernceTableInslots.resx">
+      <DependentUpon>201911200932392_changedprimaryKeysAndAddedRefernceTableInslots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200938319_addedColumnInSlots.resx">
+      <DependentUpon>201911200938319_addedColumnInSlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911200959142_addedColumnAndDeletedColumnInLogin.resx">
+      <DependentUpon>201911200959142_addedColumnAndDeletedColumnInLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911201117357_checking.resx">
+      <DependentUpon>201911201117357_checking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911201121168_check1.resx">
+      <DependentUpon>201911201121168_check1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911201155216_RemovedDataColumn.resx">
+      <DependentUpon>201911201155216_RemovedDataColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911210324556_RemovedDoctorViewModel.resx">
+      <DependentUpon>201911210324556_RemovedDoctorViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911210745435_RemovedReferncekeyInslots.resx">
+      <DependentUpon>201911210745435_RemovedReferncekeyInslots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911210749053_RemovedTAbleSlots.resx">
+      <DependentUpon>201911210749053_RemovedTAbleSlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911210749494_SlotTableAdded.resx">
+      <DependentUpon>201911210749494_SlotTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211132013_removedtable.resx">
+      <DependentUpon>201911211132013_removedtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211132418_tableAdded.resx">
+      <DependentUpon>201911211132418_tableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211141050_addingreferencetopatient.resx">
+      <DependentUpon>201911211141050_addingreferencetopatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911211143022_removedpasswordinpatienttable.resx">
+      <DependentUpon>201911211143022_removedpasswordinpatienttable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220747437_AddeddateColumn.resx">
+      <DependentUpon>201911220747437_AddeddateColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911220959001_ChangedPropertyInPatients.resx">
+      <DependentUpon>201911220959001_ChangedPropertyInPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911221050441_RemovedReferencesinSlots.resx">
+      <DependentUpon>201911221050441_RemovedReferencesinSlots.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

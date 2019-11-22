@@ -29,13 +29,13 @@ namespace miniproject.Models
         {
             return new ApplicationDbContext();
         }
-     public   DbSet<Doctor> doctors { get; set; }
+        public DbSet<Doctor> doctors { get; set; }
         public DbSet<Employee> employees { get; set; }
-        public DbSet<Patient> patients { get; set; }
+       public DbSet<Patient> patients { get; set; }
         public DbSet<Location> locations { get; set; }
         public DbSet<Slot> slots { get; set; }
         public DbSet<Login> Logins { get; set; }
 
-       
+
     }
 }

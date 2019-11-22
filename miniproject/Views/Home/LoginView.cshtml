@@ -3,36 +3,50 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
-@using (Html.BeginForm())
-{
-    <div class="form-group">
+    <center>
+        <img src="~/Images/login2.png" width="200" height="200" />
+    </center>
+ 
 
-        @Html.LabelFor(c => c.EmailId)
-        @Html.TextBoxFor(c => c.EmailId, new { @class = "form-text text-muted", autocomplte = "off", required = true })
-        @Html.ValidationMessageFor(c => c.EmailId)
-    </div>
-    <div class="form-group">
-
-        @Html.LabelFor(c => c.Password)
-        @Html.TextBoxFor(c => c.Password, new { @class = "form-text text-muted", autocomplte = "off", required = true })
-        @Html.ValidationMessageFor(c => c.Password)
-
-    </div>
+   
 
 
-    <div class="form-group">
-        @Html.LabelFor(c => c.SapId)
-        @Html.TextBoxFor(c => c.SapId, new { @class = "form-control-file", autocomplte = "off" })
-        @Html.ValidationMessageFor(c => c.SapId)
-    </div>
-   <div class="form-group">
 
-<input type="submit" name="cmdsubmit" class="btn btn-outline-primary" />
+    <center>
 
 
-   </div>
-@Html.ActionLink("BackToList", "Index", "Login")
-}
-        
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+
+                @Html.Label("EmailId/SapId")
+                @Html.TextBoxFor(c => c.UserName, new { @class = "form-control", autocomplete = "off", required = true })
+                @Html.ValidationMessageFor(c => c.UserName)
+            </div>
+            <center>
+                <div class="form-group">
+                    <label>Password</label>
+                    @* @Html.Label("Password")*@
+                    <input type="password" name="Password" autocomplete="off" placeholder="Password" />
+                    @*@Html.TextBoxFor(c => c.Password, new { @class = "form-control", autocomplete = "off", required = true })
+        @Html.ValidationMessageFor(c => c.Password)*@
+                </div>
+            </center>
+            
+
+          
+
+
+
+            <div class="form-group">
+
+                <input type="submit" name="cmdsubmit" class="btn btn-outline-primary" />
+
+
+            </div>
+            @Html.ActionLink("BackToList", "Index", "Login")
+        }
+
+    </center>
+
 

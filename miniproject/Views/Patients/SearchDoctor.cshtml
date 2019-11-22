@@ -1,0 +1,70 @@
+﻿@model  miniproject.ViewModel.DoctorViewModel
+@{
+    ViewBag.Title = "SearchDoctor";
+}
+
+<h2>SearchDoctor</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("SearchDoctor", "Patients", FormMethod.Post))
+        {
+        <div class="row">
+
+            <div class="form-group col-md-6">
+                @Html.Label("Location")
+                @Html.DropDownList("LocationId", ViewBag.Locations as SelectList, "Please select", new { @class = "form-control", onchange = "document.forms[0].submit();" })
+            </div>
+
+            <div class="form-group col-md-6">
+
+                @if (ViewBag.Doctors != null)
+                {
+                    @Html.Label("Specialization")
+                    @Html.DropDownList("Specialization", ViewBag.Doctors as SelectList, "Please select", new { @class = "form-control", onchange = "document.forms[0].submit();" })
+                }
+            </div>
+        </div>
+            <hr />
+            if (Model.DoctorsList != null)
+            {
+
+            <table class="table table-bordered table-hover">
+                <tr>
+                   
+                    <th>DoctorName</th>
+                    <th>Specialization</th>
+                    <th>Experience</th>
+                    <th>Availabity</th>
+                    <th>Hospital Name</th>
+                    <th>Hospital Address</th>
+                    <th>City</th>
+                    <th>Booking Appointment</th>
+                </tr>
+                @foreach (var item in Model.DoctorsList)
+                {
+                <tr>
+
+                    <td>@item.DoctorName</td>
+                    <td>@item.Specialization</td>
+                    <td>@item.Experience</td>
+                    <td>@Html.DisplayFor(modelItem => item.Availability)</td>
+                    <td>@item.HospitalName</td>
+                    <td>@item.HospitalAddress</td>
+                    <td>@item.Location.City</td>
+                    <td>@Html.ActionLink("BookAppointment", "CreatePatientDetails", "Patients",new { @class = "btn btn-Success" })</td>
+                   
+                </tr>
+                }
+
+            </table>
+            }
+            }
+           
+        </div>
+</body>
+</html>

@@ -25,7 +25,7 @@ namespace miniproject
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/BOOTSTRAP.COSMO.css",
                       "~/Content/site.css",
                       "~/Content/themes/base/jquery-ui.css"
                       ));

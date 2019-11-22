@@ -1,0 +1,19 @@
+﻿@model miniproject.ViewModel.DoctorViewModel
+@{
+    ViewBag.Title = "Timings";
+}
+
+<h2>Timings</h2>
+
+<div class="container">
+    @using (Html.BeginForm("CreatePatientDetails", "Patients", FormMethod.Post))
+    {
+        <div class="row">
+
+            <div class="form-group col-md-5">
+                @Html.Label("Timings")
+                @Html.DropDownList("Id", ViewBag.slots as SelectList, "Please select", new { onchange = "document.forms[0].submit();" })
+            </div>
+            </div>
+    }
+    </div>

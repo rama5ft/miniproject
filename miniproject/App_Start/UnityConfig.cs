@@ -1,3 +1,4 @@
+using miniproject.Interface;
 using miniproject.Repository;
 using System.Web.Mvc;
 using Unity;
@@ -15,7 +16,10 @@ namespace miniproject
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<ILogin, LoginRepositary>();
+            container.RegisterType<ILogin, AllRepository>();
+            container.RegisterType<CommonInterface, AllRepository>();
+          container.RegisterType<PatientDetails, AllRepository>();
+           
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

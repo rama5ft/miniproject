@@ -1,0 +1,31 @@
+ //[HttpGet]-not needed
+        //public ActionResult SearchDoctor()
+        //{
+
+        //    DoctorViewModel model = new DoctorViewModel();
+        //    //foreach (var loc in dbContext.locations)
+        //    //{
+        //    //    model.Locations.Add(new SelectListItem { Text = loc.City, Value = loc.LocationId.ToString() });
+        //    //}
+
+        //    return View(model);
+        //}
+
+        //[HttpPost]-needed
+        //public ActionResult SearchDoctor(int? LocationId, int? DoctorId)
+        //{
+        //    ViewBag.Locations = new SelectList(dbContext.locations.ToList(), "LocationId", "City");
+
+        //    DoctorViewModel model = new DoctorViewModel();
+        //    if (LocationId.HasValue)
+        //    {
+        //        ViewBag.Doctors = new SelectList(dbContext.doctors.Where(c => c.LocationId == LocationId).ToList(), "DoctorId", "Specialization");
+
+        //    }
+
+        //    if (LocationId.HasValue && DoctorId.HasValue)
+        //    {
+        //        model = commonInterface.SearchByLocationId(LocationId, DoctorId);
+        //    }
+        //    return View(model);
+        //}

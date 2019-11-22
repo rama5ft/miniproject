@@ -1,0 +1,25 @@
+﻿@model miniproject.Models.Doctor
+@{
+    ViewBag.Title = "SpecialisationView";
+}
+
+<h2>SpecialisationView</h2>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(c => c.Specialization)
+            @Html.DropDownListFor(c => c.Specialization, ViewBag.Specialization as SelectList, new { @class = "form-control" })
+           
+            @Html.ValidationMessageFor(c => c.Specialization)
+
+        </div>
+      
+        <div class="form-group">
+
+            <input type="submit" name="cmdsubmit" class="btn btn-outline-primary" />
+
+
+        </div>
+    }
+</div>
