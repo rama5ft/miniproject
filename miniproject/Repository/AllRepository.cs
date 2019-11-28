@@ -59,35 +59,45 @@ namespace miniproject.Repository
                 SapId = patient.SapId,
                 MobileNumber = patient.MobileNumber,
                 Age = patient.Age,
+                DoctorId = patient.DoctorId,
                 SlotId = patient.SlotId,
                 Date = patient.Date
 
             };
+           
             dbContext.patients.Add(p);
             dbContext.SaveChanges();
+
+
+            var doctordetails = dbContext.doctors.FirstOrDefault(c => c.DoctorId == patient.DoctorId);
+
+            p.Doctor = new Doctor()
+            {
+                DoctorName = doctordetails.DoctorName,
+                Specialization=doctordetails.Specialization,
+                HospitalAddress=doctordetails.HospitalAddress
+            };
+            var SlotDetails = dbContext.slots.FirstOrDefault(c => c.SlotId == patient.SlotId);
+            p.Slot = new Slot()
+            {
+                TimeSlots = SlotDetails.TimeSlots
+            };
             return p;
         }
 
-
-        //public Patient CreatePatient(int DoctorId)
+        //public Patient PatientDetailsD(int DoctorId)
         //{
-        //    var p = new Patient
-        //    {
-        //        FullName = patient.FullName,
-        //        EmailId = patient.EmailId,
-        //        SapId = patient.SapId,
-        //        MobileNumber = patient.MobileNumber,
-        //        Age = patient.Age,
-        //        DoctorId = patient.Doctor.DoctorId,
-        //        SlotId = patient.Slot.SlotId,
+        //    return dbContext.patients.FirstOrDefault(c => c.DoctorId == DoctorId);
 
-        //    };
-        //    dbContext.patients.Add(p);
-        //    dbContext.SaveChanges();
-        //    return p;
         //}
 
+       
 
+     public Patient Details(int PatientId)
+        {
+            var pat = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).FirstOrDefault(a => a.PatientId == PatientId);
+            return pat;
+        }
     }
 
     }

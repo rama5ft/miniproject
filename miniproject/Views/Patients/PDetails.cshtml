@@ -1,0 +1,48 @@
+﻿@model miniproject.Models.Patient
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Booking Details</h2>
+
+
+
+
+<table class="table table-bordered table-hover">
+    @if (Model != null)
+    {
+        <tr>
+            <th> DoctorName</th>
+            <th>Specialization</th>
+            <th>Patient Name</th>
+            <th>EmailId</th>
+            <th>Age</th>
+            <th>SapId</th>
+            <th>Location</th>
+            <th>TimeSlot</th>
+        </tr>
+        <tr>
+            <td>@Model.Doctor.DoctorName</td>
+            <td>@Model.Doctor.Specialization</td>
+            <td>@Model.FullName</td>
+            <td>@Model.EmailId</td>
+            <td>@Model.Age</td>
+            <td>@Model.SapId</td>
+            <td>@Model.Doctor.HospitalAddress</td>
+            <td>@Model.Slot.TimeSlots</td>
+        </tr>
+    }
+    else
+    {
+        <text>no records founds</text>
+    }
+
+</table>
+
+
+
+
+
+
+@Html.ActionLink("BackToList", "Index", "Home")

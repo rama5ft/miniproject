@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using miniproject.Interface;
 using miniproject.Models;
+using miniproject.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,11 @@ namespace miniproject.Controllers
 
             return View();
         }
-
+        public ActionResult Admin()
+        {
+            return View();
+        }
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -38,7 +43,7 @@ namespace miniproject.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult UpcomingEvents()
         {
             ViewBag.Message = "Your contact page.";
 
@@ -69,19 +74,64 @@ namespace miniproject.Controllers
             else
                 return Content("Data Not found");
         }
-       
-      
-        public IEnumerable<SelectListItem> ListCity()
+
+
+        //public IEnumerable<SelectListItem> ListCity()
+        //{
+        //    var loc = (from m in dbContext.locations.AsEnumerable()
+        //                      select new SelectListItem
+        //                      {
+        //                          Text = m.City,
+        //                          Value = m.LocationId.ToString()
+        //                      }).ToList();
+        //    loc.Insert(0, new SelectListItem { Text = "----select the type---", Value = "0", Disabled = true, Selected = true });
+        //    return loc;
+        //}
+        [HttpGet]
+        public ActionResult AddEmployee()
         {
-            var loc = (from m in dbContext.locations.AsEnumerable()
-                              select new SelectListItem
-                              {
-                                  Text = m.City,
-                                  Value = m.LocationId.ToString()
-                              }).ToList();
-            loc.Insert(0, new SelectListItem { Text = "----select the type---", Value = "0", Disabled = true, Selected = true });
-            return loc;
+            var employee = new Employee();
+            return View(employee);
         }
+       
+        [HttpPost]
+      
+        public ActionResult AddEmployee(Employee employeeFromView)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(employeeFromView);
+            }
+            dbContext.employees.Add(employeeFromView);
+            dbContext.SaveChanges();
+            return RedirectToAction("Admin", "Home");
+        }
+
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddDoctor()
+        {
+            var city = dbContext.locations.ToList();
+            var viewmodel = new CommonViewModel()
+            {
+                Location = city
+            };
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddDoctor(Doctor doctorFromView)
+        {      
+            dbContext.doctors.Add(doctorFromView);
+            dbContext.SaveChanges();
+            return RedirectToAction("Admin", "Home");
+      
+          
+            
+        }
+
     }
 }
 

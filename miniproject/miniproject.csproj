@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -324,6 +327,10 @@
     <Compile Include="Migrations\201911221050441_RemovedReferencesinSlots.Designer.cs">
       <DependentUpon>201911221050441_RemovedReferencesinSlots.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911270754187_rolesadded.cs" />
+    <Compile Include="Migrations\201911270754187_rolesadded.Designer.cs">
+      <DependentUpon>201911270754187_rolesadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -339,7 +346,7 @@
     <Compile Include="Repository\AllRepository.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\DoctorViewModel.cs" />
-    <Compile Include="ViewModel\DoctorViewModel1.cs" />
+    <Compile Include="ViewModel\CommonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -411,6 +418,10 @@
     <Content Include="Images\login1.png" />
     <Content Include="Images\login2.png" />
     <Content Include="Images\login3.png" />
+    <Content Include="Images\steps\bookcrop.png" />
+    <Content Include="Images\steps\doccrop.png" />
+    <Content Include="Images\steps\loccrop1.png" />
+    <Content Include="Images\steps\logincrop.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -459,7 +470,7 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginPartialHome.cshtml" />
     <Content Include="Views\Home\LoginView.cshtml" />
     <Content Include="Views\Patients\locationView.cshtml" />
     <Content Include="Views\Patients\DoctorView.cshtml" />
@@ -471,6 +482,15 @@
     <Content Include="Views\Patients\SelectSlot.cshtml" />
     <Content Include="Views\Patients\Timings.cshtml" />
     <Content Include="Views\Patients\CreatePatientDetails.cshtml" />
+    <Content Include="Views\Patients\PatientDetailsC.cshtml" />
+    <Content Include="Views\Patients\List.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\Home\AddEmployee.cshtml" />
+    <Content Include="Views\Home\AddDoctor.cshtml" />
+    <Content Include="Views\Home\UpcomingEvents.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Patients\PDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -584,6 +604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911221050441_RemovedReferencesinSlots.resx">
       <DependentUpon>201911221050441_RemovedReferencesinSlots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911270754187_rolesadded.resx">
+      <DependentUpon>201911270754187_rolesadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

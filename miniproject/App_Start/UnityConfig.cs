@@ -1,7 +1,9 @@
+using miniproject.Controllers;
 using miniproject.Interface;
 using miniproject.Repository;
 using System.Web.Mvc;
 using Unity;
+using Unity.Injection;
 using Unity.Mvc5;
 
 namespace miniproject
@@ -19,6 +21,8 @@ namespace miniproject
             container.RegisterType<ILogin, AllRepository>();
             container.RegisterType<CommonInterface, AllRepository>();
           container.RegisterType<PatientDetails, AllRepository>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
+            container.RegisterType<ManageController>(new InjectionConstructor());
            
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

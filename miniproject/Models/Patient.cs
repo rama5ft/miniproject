@@ -18,7 +18,7 @@ namespace miniproject.Models
        
       //  [DataType(DataType.Date)] 
         public string Date { get; set; }
-                                           //Addding reference tables
+        //Addding reference tables
         public Doctor Doctor { get; set; }
         public int? DoctorId { get; set; }
         public Employee Employee { get; set; }
@@ -26,7 +26,7 @@ namespace miniproject.Models
         public Slot Slot { get; set; }
         public int? SlotId { get; set; }
 
-
+      
 
 
     }

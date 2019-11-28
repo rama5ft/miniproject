@@ -11,15 +11,17 @@ namespace miniproject.Interface
 {
     public  interface CommonInterface
     {
-        // DoctorViewModel SearchByLocationId(int? locationId, int? doctorId);
+       
         DoctorViewModel SearchByLocationId(int? locationId, string Specialization);
-
+       
 
     }
     public interface PatientDetails
     {
         Patient CreatePatient(Patient patient);
-     
+        
+        Patient Details(int PatientId);
+
     }
 
  
