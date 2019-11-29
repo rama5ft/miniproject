@@ -12,6 +12,7 @@
         $(function () {
             $("#datepicker").datepicker({ minDate: 0, maxDate: "+3M +0D" });
         });
+        $('option[value=ViewBag.SlotId]').prop('disabled', true);
     </script>
 
 </head>
@@ -81,8 +82,9 @@
                     @Html.Label("TimeSlots")
                     @*@Html.DropDownList("TimeSlots", ViewBag.slots as SelectList, new { @class = "form-control"@*, onchange = "document.forms[0].submit();" })*@
                     <div class="col-md-10">
-                        @Html.DropDownListFor(c => c.SlotId, ViewBag.SlotId as SelectList, new { @class = "form-control" })
+                        @Html.DropDownListFor(c => c.SlotId, ViewBag.SlotId as SelectList , new { @class = "form-control" })
                         @Html.ValidationMessageFor(c => c.SlotId)
+
                     </div>
                 </div>
 

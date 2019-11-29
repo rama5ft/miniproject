@@ -1,0 +1,23 @@
+﻿@model miniproject.Models.Doctor
+@{
+    ViewBag.Title = "AfterLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Welcome To HCL HealthCare</h2>
+
+
+@if (Session["LogedUserFullname"] != null)
+{
+    <text>
+        Welcome!!! @Session["LogedUserFullname"].ToString()
+    </text>
+}
+
+
+<table>
+    <tr>
+        <td>@Html.ActionLink("Book", "SearchDoctor", "patients",null, new { @class = "btn btn - Success" })</td>
+          
+    </tr>
+</table>

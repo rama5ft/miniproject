@@ -56,15 +56,19 @@ namespace miniproject.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult LoginView(Login login)
         {
             var log = dbContext.employees.FirstOrDefault(m => m.EmailId == login.UserName || m.SapId == login.UserName);
             if (log != null)
             {
+                Session["LogedUserID"] = log.EmailId.ToString();
+                Session["LogedUserFullname"] = log.Name.ToString();
+
                 if (log.Password == login.Password &&(log.EmailId==login.UserName)||(log.SapId==login.UserName))
                 {
                     loginrepositary.LoginValidation(login);
-                    return RedirectToAction("SearchDoctor", "Patients");
+                    return RedirectToAction("AfterLogin", "Home");
 
                 }
                 else
@@ -131,7 +135,17 @@ namespace miniproject.Controllers
           
             
         }
-
+        public ActionResult AfterLogin()
+        {
+            if (Session["LogedUserID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
 

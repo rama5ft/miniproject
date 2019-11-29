@@ -3,50 +3,55 @@
     ViewBag.Title = "Login";
 }
 
-    <center>
-        <img src="~/Images/login2.png" width="200" height="200" />
-    </center>
- 
-
-   
+<center>
+    <img src="~/Images/login2.png" width="200" height="200" />
+</center>
 
 
 
-    <center>
 
 
-        @using (Html.BeginForm())
+
+<center>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken() // this is for prevent CSRF attack
+        @Html.ValidationSummary(true)
+        if (@ViewBag.Message != null)
         {
-            <div class="form-group">
-
-                @Html.Label("EmailId/SapId")
-                @Html.TextBoxFor(c => c.UserName, new { @class = "form-control", autocomplete = "off", required = true })
-                @Html.ValidationMessageFor(c => c.UserName)
+            <div style="border: 1px solid red">
+                @ViewBag.Message
             </div>
-            <center>
-                <div class="form-group">
-                    <label>Password</label>
-                    @* @Html.Label("Password")*@
-                    <input type="password" name="Password" autocomplete="off" placeholder="Password" />
-                    @*@Html.TextBoxFor(c => c.Password, new { @class = "form-control", autocomplete = "off", required = true })
-        @Html.ValidationMessageFor(c => c.Password)*@
-                </div>
-            </center>
-            
-
-          
-
-
-
-            <div class="form-group">
-
-                <input type="submit" name="cmdsubmit" class="btn btn-outline-primary" />
-
-
-            </div>
-            @Html.ActionLink("BackToList", "Index", "Login")
         }
+        <div class="form-group">
 
-    </center>
+            @Html.Label("EmailId/SapId")
+            @Html.TextBoxFor(c => c.UserName, new { @class = "form-control", autocomplete = "off", required = true })
+            @Html.ValidationMessageFor(c => c.UserName)
+        </div>
+        <center>
+            <div class="form-group">
+                @*<label>Password</label>
+
+                    <input type="password" name="Password" autocomplete="off" placeholder="Password" />*@
+                @Html.LabelFor(a => a.Password)
+                @Html.PasswordFor(a => a.Password, new { @class = "form-control", autocomplete = "off", required = true })
+                @Html.ValidationMessageFor(a => a.Password)
+
+            </div>
+        </center>
+
+        <div class="form-group">
+
+            <input type="submit" name="cmdsubmit" value="Login" class="btn btn-outline-primary" />
+
+
+        </div>
+        @Html.ActionLink("BackToList", "Index", "Home")
+    }
+
+</center>
 
 

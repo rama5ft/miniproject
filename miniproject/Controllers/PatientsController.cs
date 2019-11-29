@@ -17,7 +17,7 @@ namespace miniproject.Controllers
     {
         CommonInterface commonInterface;
         PatientDetails patientDetails;
-       
+
         public PatientsController(CommonInterface commonInterface, PatientDetails patientDetails)
         {
             this.commonInterface = commonInterface;
@@ -38,25 +38,28 @@ namespace miniproject.Controllers
             return View();
         }
 
-       
+
 
         public ActionResult SearchDoctor(int? LocationId, string Specialization)
         {
+
             ViewBag.Locations = new SelectList(dbContext.locations.ToList(), "LocationId", "City");
 
             DoctorViewModel model = new DoctorViewModel();
             if (LocationId.HasValue)
             {
-                ViewBag.Doctors = new SelectList(dbContext.doctors.Where(c => c.LocationId == LocationId).DistinctBy(x=>x.Specialization).ToList(), "Specialization", "Specialization");
+                ViewBag.Doctors = new SelectList(dbContext.doctors.Where(c => c.LocationId == LocationId).DistinctBy(x => x.Specialization).ToList(), "Specialization", "Specialization");
 
             }
 
             if (LocationId.HasValue && !string.IsNullOrWhiteSpace(Specialization))
             {
-                model.DoctorsList= dbContext.doctors.Include(c=>c.Location).Where(d=> d.Specialization == Specialization && d.LocationId == LocationId).ToList();
+                model.DoctorsList = dbContext.doctors.Include(c => c.Location).Where(d => d.Specialization == Specialization && d.LocationId == LocationId).ToList();
 
             }
             return View(model);
+
+
         }
         [HttpGet]
         public ActionResult CreatePatientDetails(int DoctorId)
@@ -69,18 +72,19 @@ namespace miniproject.Controllers
         [HttpPost]
         public ActionResult CreatePatientDetails(Patient p1)
         {
-          
+
             if (ModelState.IsValid)
             {
                 var res = patientDetails.CreatePatient(p1);
                 ViewBag.DoctorId = res.DoctorId;
                 //ViewBag.SlotId = res.SlotId;
-               // ViewBag.DoctorName = res.Doctor.DoctorName;
+                // ViewBag.DoctorName = res.Doctor.DoctorName;
                 ViewBag.SlotId = ListSlots();
-                return View("PDetails",res);
+                return View("PDetails", res);
             }
             return RedirectToAction("Index");
         }
+      
 
 
         //public ActionResult SelectSlot()
@@ -95,9 +99,10 @@ namespace miniproject.Controllers
         {
             var s = (from res in dbContext.slots.AsEnumerable()
                      select new SelectListItem
-                        { Text = res.TimeSlots ,
-                           Value = res.SlotId.ToString()
-                        }).ToList();
+                     {
+                         Text = res.TimeSlots,
+                         Value = res.SlotId.ToString()
+                     }).ToList();
             s.Insert(0, new SelectListItem { Text = "---select the Timeslot---", Value = "0", Disabled = true, Selected = true });
             return s;
         }
@@ -112,19 +117,19 @@ namespace miniproject.Controllers
                      }).ToList();
             s.Insert(0, new SelectListItem { Text = "---select the DoctorId---", Value = "0", Disabled = true, Selected = true });
             return s;
-        }  
+        }
         public ActionResult List()
         {
             var customers = dbContext.patients.Include(m => m.Doctor).ToList();
             return View(customers);
-          
+
         }
         public ActionResult PDetails(int PatientId)
         {
 
             var p = patientDetails.Details(PatientId);
             return View(p);
-           
+
         }
 
     }

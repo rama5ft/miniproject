@@ -26,14 +26,19 @@
 
                 @*<li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "nav-link" })</li>*@
             </ul>
-            @Html.Partial("_LoginPartialHome")
-             </div>
+            <ol class="nav navbar-nav navbar-right">
+
+                @Html.Partial("_LoginPartialHome", new { @class = "navbar-link" })
+
+            </ol>
+          
+        </div>
         </nav>
         <div class="container body-content">
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year -HCL HealthCare</p>
+                <p>&copy; @System.DateTime.Now.ToString("yyyy") -HCL HealthCare</p>
             </footer>
         </div>
 

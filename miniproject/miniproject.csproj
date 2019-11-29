@@ -395,6 +395,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="css\StyleSheetabout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -403,6 +404,7 @@
     <Content Include="Images\136939.jpg" />
     <Content Include="Images\44ba2a5d-9c88-4c4e-990b-847ed86c3feb-original.jpeg" />
     <Content Include="Images\banner_image2.jpg" />
+    <Content Include="Images\Best Hospitals 2016.jpg" />
     <Content Include="Images\circle-cropped %281%29.png" />
     <Content Include="Images\circle-cropped %282%29.png" />
     <Content Include="Images\circle-cropped %283%29.png" />
@@ -491,6 +493,7 @@
     <Content Include="Views\Home\UpcomingEvents.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Patients\PDetails.cshtml" />
+    <Content Include="Views\Home\AfterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
