@@ -3,21 +3,29 @@
     ViewBag.Title = "AfterLogin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<center>
+    <p style="font-family:'Times New Roman';">
+        <h2><b>Welcome To HCL HealthCare</b> </h2>
+</p>
+</center>
 
-<h2>Welcome To HCL HealthCare</h2>
 
 
 @if (Session["LogedUserFullname"] != null)
 {
     <text>
-        Welcome!!! @Session["LogedUserFullname"].ToString()
+        <p style="font-family:Arial Black;">
+            Welcome!!! @Session["LogedUserFullname"].ToString()
+            </p>
     </text>
 }
 
 
+<br />
+
 <table>
     <tr>
-        <td>@Html.ActionLink("Book", "SearchDoctor", "patients",null, new { @class = "btn btn - Success" })</td>
-          
+        <td> <button>@Html.ActionLink("For Appointment", "SearchDoctor", "patients", null, new { @class = "btn btn - Success" })</button></td> 
+        <td><button>@Html.ActionLink("ViewAppointments", "ViewAppointments", "patients", null, new { @class = "btn btn-Primary" })</button></td>
     </tr>
 </table>

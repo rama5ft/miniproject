@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <marquee direction="left">
     <img src="~/Images/136939.jpg" width="300" height="300" />
@@ -8,31 +9,42 @@
     <img src="~/Images/download.jpg"  width="300" height="300" />
     <img src="~/Images/hcl4-k32G--621x414@LiveMint_small.jpg"  width="300" height="300" />
 </marquee>
-
+<style>
+    hr {
+        display: block;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style:groove;
+        border-width: 4px;
+        background-color:royalblue;
+    }
+</style>
 <div class="jumbotron">
     @*<h1>ASP.NET</h1>*@
     <p class="lead" style="font-family: 'Times New Roman'">
-        We enhance quality of life by enhancing health.The primary objective of our health delivery system is to enable all employees to receive health care services whenever needed that meet pre-established standards of quality.
+        <b>  We enhance quality of life by enhancing health.The primary objective of our health delivery system is to enable all employees to receive health care services whenever needed that meet pre-established standards of quality.</b>
     </p>
     <p><a class="btn btn-success" href=http://localhost:53522/Home/LoginView>Learn more &raquo;</a></p>
 
 </div>
+<br />
 <div class="row">
     <div class="col-md-3">
-        <p><img src="~/Images/steps/logincrop.png" style="width:50%;height:50%"  /></p>
+        <p><img src="~/Images/steps/logincrop.png" style="width:50%;height:50%" <p style="resize:100%"><b>&ensp; &emsp; &emsp; >></b> </p></p>
         <p style="font-family:Arial Black;">
-            <h>Login &#8594; </h>
+            <h>Login </h>
         </p>
     </div>
-    
     <div class="col-md-3">
-        <p><img src="~/Images/steps/loccrop1.png" style="width:50%;height:50%" /></p>
+        <p><img src="~/Images/steps/loccrop1.png" style="width:50%;height:50%" <p style="resize:100%"><b>&ensp; &emsp; &emsp; >></b> </p></p>
         <p style="font-family:Arial Black;">
             <h>Select Location</h>
         </p>
     </div>
     <div class="col-md-3">
-        <p><img src="~/Images/steps/doccrop.png" style="width:50%;height:50%" /></p>
+        <p><img src="~/Images/steps/doccrop.png" style="width:50%;height:50%" <p style="resize:100%"><b>&ensp; &emsp; &emsp; >></b> </p></p>
         <p style="font-family:Arial Black;">
             <h>Choose Doctor and Specialization</h>
         </p>
@@ -43,13 +55,19 @@
             <h>Book your Appointment</h>
         </p>
     </div>
-    </div>
-
-    <center><h1 style="color:cornflowerblue;">SPECIALIZATION</h1></center>
-
+</div>
+<br />
+<hr />
+<br />
+<p>
+    &ensp; &emsp; &ensp; &emsp; Hcl HealthCare has dedicated Centers of Excellence for several key specialties and superspecialties. They are unique and state of the art facilities spread across several of the Apollo hospital location and each Centre of Excellence stands out as a citadel of excellence.
+</p>
+    <center><h1 style="color:darkblue;"><b>SPECIALIZATION</b></h1></center>
+<br />
 
     <div class="row">
         <div class="col-md-3">
+           
             <p> <img src="~/Images/circle-cropped (2).png" style="width:50%;height:50%" /> </p>
             <p style="font-family:Arial Black;">
                 <h>Neurology</h>

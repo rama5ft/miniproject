@@ -64,7 +64,7 @@ namespace miniproject.Repository
                 Date = patient.Date
 
             };
-           
+
             dbContext.patients.Add(p);
             dbContext.SaveChanges();
 
@@ -74,8 +74,8 @@ namespace miniproject.Repository
             p.Doctor = new Doctor()
             {
                 DoctorName = doctordetails.DoctorName,
-                Specialization=doctordetails.Specialization,
-                HospitalAddress=doctordetails.HospitalAddress
+                Specialization = doctordetails.Specialization,
+                HospitalAddress = doctordetails.HospitalAddress
             };
             var SlotDetails = dbContext.slots.FirstOrDefault(c => c.SlotId == patient.SlotId);
             p.Slot = new Slot()
@@ -85,15 +85,10 @@ namespace miniproject.Repository
             return p;
         }
 
-        //public Patient PatientDetailsD(int DoctorId)
-        //{
-        //    return dbContext.patients.FirstOrDefault(c => c.DoctorId == DoctorId);
 
-        //}
 
-       
 
-     public Patient Details(int PatientId)
+        public Patient Details(int PatientId)
         {
             var pat = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).FirstOrDefault(a => a.PatientId == PatientId);
             return pat;

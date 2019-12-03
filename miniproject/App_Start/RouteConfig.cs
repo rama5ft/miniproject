@@ -12,7 +12,13 @@ namespace miniproject
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+           routes.MapRoute(
+               "DeleteAppointmentDetails",
+                "DeleteAppointmentDetails/{PatientId}",
+                new { controller = "Patients", action = "DeleteAppointmentDetails"}
+            );
+            
+            routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -20,6 +20,7 @@
             <th>Age</th>
             <th>SapId</th>
             <th>Location</th>
+            <th>Mobile Number</th>
             <th>TimeSlot</th>
         </tr>
         <tr>
@@ -30,6 +31,7 @@
             <td>@Model.Age</td>
             <td>@Model.SapId</td>
             <td>@Model.Doctor.HospitalAddress</td>
+            <td>@Model.MobileNumber</td>
             <td>@Model.Slot.TimeSlots</td>
         </tr>
     }
@@ -43,6 +45,7 @@
 
 
 
+<div>
+    @Html.ActionLink("BackToList", "Index", "Home")
+</div>
 
-
-@Html.ActionLink("BackToList", "Index", "Home")

@@ -70,28 +70,23 @@ namespace miniproject.Controllers
             return View(p3);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult CreatePatientDetails(Patient p1)
         {
+
 
             if (ModelState.IsValid)
             {
                 var res = patientDetails.CreatePatient(p1);
                 ViewBag.DoctorId = res.DoctorId;
-                //ViewBag.SlotId = res.SlotId;
-                // ViewBag.DoctorName = res.Doctor.DoctorName;
-                ViewBag.SlotId = ListSlots();
                 return View("PDetails", res);
             }
-            return RedirectToAction("Index");
+            ViewBag.SlotId = ListSlots();
+            return View();
         }
-      
 
 
-        //public ActionResult SelectSlot()
-        //{
-        //    ViewBag.TimeSlots = ListSlots();
-        //    return View();
-        //}
+
 
 
         [NonAction]
@@ -106,24 +101,9 @@ namespace miniproject.Controllers
             s.Insert(0, new SelectListItem { Text = "---select the Timeslot---", Value = "0", Disabled = true, Selected = true });
             return s;
         }
-        [NonAction]
-        public IEnumerable<SelectListItem> ListDoctorIds()
-        {
-            var s = (from res in dbContext.doctors.AsEnumerable()
-                     select new SelectListItem
-                     {
-                         Text = res.DoctorId.ToString(),
-                         Value = res.DoctorId.ToString()
-                     }).ToList();
-            s.Insert(0, new SelectListItem { Text = "---select the DoctorId---", Value = "0", Disabled = true, Selected = true });
-            return s;
-        }
-        public ActionResult List()
-        {
-            var customers = dbContext.patients.Include(m => m.Doctor).ToList();
-            return View(customers);
 
-        }
+
+
         public ActionResult PDetails(int PatientId)
         {
 
@@ -131,9 +111,63 @@ namespace miniproject.Controllers
             return View(p);
 
         }
+        public ActionResult ViewAppointments()
+        {
+            var patients = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).ToList();
+            return View(patients);
+
+        }
+
+        //[HttpGet]
+
+        //public ActionResult DeleteAppointmentDetails(int id)
+        //{
+
+        //    var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d=>d.Employee).Include(c=>c.Slot).SingleOrDefault(c => c.PatientId == id);
+        //    if (patientDel != null)
+        //    {
+
+        //        ViewBag.SlotId = ListSlots();
+        //        return View(patientDel);
+        //    }
+
+        //    return HttpNotFound("Your Appointments Are Not Found");
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken()]
+
+        //public ActionResult DeleteAppointmentDetails(Patient patientFromView)
+        //{
+
+        //    var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d => d.Employee).Include(c => c.Slot).SingleOrDefault(c => c.PatientId == patientFromView.PatientId);
+
+        //    dbContext.patients.Remove(patientDel);
+        //    dbContext.SaveChanges();
+        //    return RedirectToAction("Index", "Patients");
+
+
+
+        //}
+        [ValidateAntiForgeryToken()]
+        public ActionResult DeleteAppointmentDetails(int id)
+        {
+            var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
+            if (patientDel != null)
+            {
+
+                ViewBag.SlotId = ListSlots();
+                dbContext.patients.Remove(patientDel);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index", "Patients");
+            }
+
+            return HttpNotFound("Your Appointments Are Not Found");
+        }
 
     }
-}
+    }
+
 
 
 

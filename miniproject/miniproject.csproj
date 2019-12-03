@@ -331,6 +331,18 @@
     <Compile Include="Migrations\201911270754187_rolesadded.Designer.cs">
       <DependentUpon>201911270754187_rolesadded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912020745006_appliedannotations.cs" />
+    <Compile Include="Migrations\201912020745006_appliedannotations.Designer.cs">
+      <DependentUpon>201912020745006_appliedannotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912021122174_slotidannotationapplied.cs" />
+    <Compile Include="Migrations\201912021122174_slotidannotationapplied.Designer.cs">
+      <DependentUpon>201912021122174_slotidannotationapplied.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912021227051_slotidannotationapplied1.cs" />
+    <Compile Include="Migrations\201912021227051_slotidannotationapplied1.Designer.cs">
+      <DependentUpon>201912021227051_slotidannotationapplied1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Doctor.cs" />
@@ -485,7 +497,6 @@
     <Content Include="Views\Patients\Timings.cshtml" />
     <Content Include="Views\Patients\CreatePatientDetails.cshtml" />
     <Content Include="Views\Patients\PatientDetailsC.cshtml" />
-    <Content Include="Views\Patients\List.cshtml" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\Home\AddEmployee.cshtml" />
@@ -494,6 +505,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Patients\PDetails.cshtml" />
     <Content Include="Views\Home\AfterLogin.cshtml" />
+    <Content Include="Views\Patients\DeleteAppointmentDetails.cshtml" />
+    <Content Include="Views\Patients\ViewAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -610,6 +623,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911270754187_rolesadded.resx">
       <DependentUpon>201911270754187_rolesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912020745006_appliedannotations.resx">
+      <DependentUpon>201912020745006_appliedannotations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021122174_slotidannotationapplied.resx">
+      <DependentUpon>201912021122174_slotidannotationapplied.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912021227051_slotidannotationapplied1.resx">
+      <DependentUpon>201912021227051_slotidannotationapplied1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
