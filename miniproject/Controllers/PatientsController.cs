@@ -149,21 +149,21 @@ namespace miniproject.Controllers
 
 
         }
-        //[ValidateAntiForgeryToken()]
-        //public ActionResult DeleteAppointmentDetails(int id)
-        //{
-        //    var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
-        //    if (patientDel != null)
-        //    {
+        [ValidateAntiForgeryToken()]
+        public ActionResult DeleteAppointmentDetails(int id)
+        {
+            var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
+            if (patientDel != null)
+            {
 
-        //        ViewBag.SlotId = ListSlots();
-        //        dbContext.patients.Remove(patientDel);
-        //        dbContext.SaveChanges();
-        //        return RedirectToAction("Index", "Patients");
-        //    }
+                ViewBag.SlotId = ListSlots();
+                dbContext.patients.Remove(patientDel);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index", "Patients");
+            }
 
-        //    return HttpNotFound("Your Appointments Are Not Found");
-        //}
+            return HttpNotFound("Your Appointments Are Not Found");
+        }
 
     }
     }
