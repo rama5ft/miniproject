@@ -134,36 +134,36 @@ namespace miniproject.Controllers
         //    return HttpNotFound("Your Appointments Are Not Found");
         //}
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken()]
-
-        //public ActionResult DeleteAppointmentDetails(Patient patientFromView)
-        //{
-
-        //    var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d => d.Employee).Include(c => c.Slot).SingleOrDefault(c => c.PatientId == patientFromView.PatientId);
-
-        //    dbContext.patients.Remove(patientDel);
-        //    dbContext.SaveChanges();
-        //    return RedirectToAction("Index", "Patients");
-
-
-
-        //}
+        [HttpPost]
         [ValidateAntiForgeryToken()]
-        public ActionResult DeleteAppointmentDetails(int id)
+
+        public ActionResult DeleteAppointmentDetails(Patient patientFromView)
         {
-            var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
-            if (patientDel != null)
-            {
 
-                ViewBag.SlotId = ListSlots();
-                dbContext.patients.Remove(patientDel);
-                dbContext.SaveChanges();
-                return RedirectToAction("Index", "Patients");
-            }
+            var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d => d.Employee).Include(c => c.Slot).SingleOrDefault(c => c.PatientId == patientFromView.PatientId);
 
-            return HttpNotFound("Your Appointments Are Not Found");
+            dbContext.patients.Remove(patientDel);
+            dbContext.SaveChanges();
+            return RedirectToAction("Index", "Patients");
+
+
+
         }
+        //[ValidateAntiForgeryToken()]
+        //public ActionResult DeleteAppointmentDetails(int id)
+        //{
+        //    var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
+        //    if (patientDel != null)
+        //    {
+
+        //        ViewBag.SlotId = ListSlots();
+        //        dbContext.patients.Remove(patientDel);
+        //        dbContext.SaveChanges();
+        //        return RedirectToAction("Index", "Patients");
+        //    }
+
+        //    return HttpNotFound("Your Appointments Are Not Found");
+        //}
 
     }
     }
