@@ -2,6 +2,7 @@
 using miniproject.Interface;
 using miniproject.Models;
 using miniproject.ViewModel;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace miniproject.Controllers
 
             return View();
         }
+        //[Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             return View();
@@ -80,17 +82,7 @@ namespace miniproject.Controllers
         }
 
 
-        //public IEnumerable<SelectListItem> ListCity()
-        //{
-        //    var loc = (from m in dbContext.locations.AsEnumerable()
-        //                      select new SelectListItem
-        //                      {
-        //                          Text = m.City,
-        //                          Value = m.LocationId.ToString()
-        //                      }).ToList();
-        //    loc.Insert(0, new SelectListItem { Text = "----select the type---", Value = "0", Disabled = true, Selected = true });
-        //    return loc;
-        //}
+      
         [HttpGet]
         public ActionResult AddEmployee()
         {
@@ -145,6 +137,17 @@ namespace miniproject.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        //[Authorize(Roles = "Admin")]
+        public ActionResult ListEmployee()
+        {
+            var emp = dbContext.employees.ToList();
+            return View(emp);
+        }
+        public ActionResult ListDoctor()
+        {
+            var doc = dbContext.doctors.Include(c=>c.Location).ToList();
+            return View(doc);
         }
     }
 }

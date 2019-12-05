@@ -1,4 +1,4 @@
-﻿@model miniproject.Models.Doctor
+﻿@model miniproject.Models.Patient
 @{
     ViewBag.Title = "AfterLogin";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,9 +14,9 @@
 @if (Session["LogedUserFullname"] != null)
 {
     <text>
-        <p style="font-family:Arial Black;">
-            Welcome!!! @Session["LogedUserFullname"].ToString()
-            </p>
+<p style="font-family:Arial Black;">
+    Welcome @Session["LogedUserFullname"].ToString() !
+</p>
     </text>
 }
 
@@ -26,6 +26,6 @@
 <table>
     <tr>
         <td> <button>@Html.ActionLink("For Appointment", "SearchDoctor", "patients", null, new { @class = "btn btn - Success" })</button></td> 
-        <td><button>@Html.ActionLink("ViewAppointments", "ViewAppointments", "patients", null, new { @class = "btn btn-Primary" })</button></td>
+        <td><button>@Html.ActionLink("ViewAppointments", "ViewAppointments", "patients",new { @class = "btn btn-Primary" })</button></td>
     </tr>
 </table>

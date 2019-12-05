@@ -3,7 +3,7 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<br />
 <h2>Booking Details</h2>
 
 
@@ -48,4 +48,9 @@
 <div>
     @Html.ActionLink("BackToList", "Index", "Home")
 </div>
+
+<div>
+    <button>@Html.ActionLink("Delete Your Appointment", "DeleteAppointmentDetails", "patients")</button>
+</div>
+
 

@@ -1,63 +1,86 @@
 ﻿@model IEnumerable<miniproject.Models.Patient>
 
 @{
-    ViewBag.Title = "ViewAppointments";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>ViewAppointments</h2>
+<!DOCTYPE html>
 
-
-<table class="table">
-    <tr>
-        <th>DoctorName</th>
-        <th>Specialization</th>
-        <th>Patient Name</th>
-        <th>EmailId</th>
-        <th>SapId</th>
-        <th>Age</th>
-        <th>Location</th>
-        <th>Mobile Number</th>
-        <th>TimeSlot</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        using (Html.BeginForm("DeleteAppointmentDetails", "Patients", new { id = item.PatientId }))
-        { 
-         @Html.AntiForgeryToken()
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewAppointments</title>
+</head>
+<body>
+    
+    <table class="table">
         <tr>
-            <td>@item.Doctor.DoctorName</td>
-            <td>@item.Doctor.Specialization</td>
-            <td>@item.FullName</td>
-            <td>@item.EmailId</td>
-            <td>@item.SapId</td>
-            <td>@item.Age</td>
-            <td>@item.Doctor.HospitalAddress</td>
-            <td>@item.MobileNumber</td>
-            <td>@item.Slot.TimeSlots</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PatientId }) |
-                @*@Html.ActionLink("DeleteAppointmentDetails", "DeleteAppointmentDetails", new { id = item.PatientId }, null)*@
-                <input type=submit value=Delete
-                       onclick="return confirm('Are you sure you want to delete record with id=@item.PatientId');" />
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor.DoctorName)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Slot.TimeSlots)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SapId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th></th>
         </tr>
+
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("DeleteAppointmentDetails", "Patients", new { id = item.PatientId }))
+            {
+                @Html.AntiForgeryToken()
+                <tr>
+                    <td>@item.Doctor.DoctorName</td>
+                    <td>@item.Doctor.Specialization</td>
+                    <td>@item.FullName</td>
+                    <td>@item.EmailId</td>
+                    <td>@item.SapId</td>
+                    <td>@item.Age</td>
+                    <td>@item.Doctor.HospitalAddress</td>
+                    <td>@item.MobileNumber</td>
+                    <td>@item.Slot.TimeSlots</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PatientId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PatientId }) |
+                        @*@Html.ActionLink("DeleteAppointmentDetails", "DeleteAppointmentDetails", new { id = item.PatientId }, null)*@
+                        <input type=submit value=Delete
+                               onclick="return confirm('Are you sure you want to delete record with id=@item.PatientId');" />
+                    </td>
+                </tr>
+            }
         }
-    }
 
-</table>
-@section scripts{
+    </table>
+    </body>
+</html>
+    @section scripts{
 
-    <script>
+        <script>
 
-        $(document).ready(function () {
-            $("#item.PatientId").click(function () {
-                alert("Are you want to delete?");
+            $(document).ready(function () {
+                $("#item.PatientId").click(function () {
+                    alert("Are you want to delete?");
+                });
             });
-        });
 
 
-    </script>
-    }
+        </script>

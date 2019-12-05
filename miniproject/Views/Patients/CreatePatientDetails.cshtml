@@ -18,7 +18,7 @@
 </head>
 <body>
 
-
+    <br />
     <h2>Form for Patient</h2>
 
     @using (Html.BeginForm())
@@ -87,14 +87,16 @@
 
                     @Html.Label("TimeSlots")
                     <div class="col-md-10">
-                        @Html.DropDownListFor(model=>model.SlotId, (IEnumerable<SelectListItem>)ViewBag.SlotId, "Please select", new { @class = "form-control" })
+                        @Html.DropDownListFor(model => model.SlotId, (IEnumerable<SelectListItem>)ViewBag.SlotId,@*"Please select",*@                  /**/
+                                                                                                                                                                               /**/
+                                                                                                                                                                               new { @class = "form-control" })
                         @Html.ValidationMessageFor(c => c.SlotId)
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" id="p" class="btn btn-outline-success " />
+                        <input type="submit" onclick="display_alert()" value="Create" id="p" class="btn btn-outline-success " />
                     </div>
                 </div>
 
@@ -111,14 +113,35 @@
 
 @section scripts{
     @Scripts.Render("~/ bundles/queryval")
-    <script>
+    @*<script>*@
 
-        $(document).ready(function () {
-            $("#p").click(function () {
-                alert("Your Booking is Confirmed");
-            });
+    @*//$(document).ready(function () {
+        //    $("#p").click(function () {
+        //        alert("Your Booking is Confirmed");
+        //    });
+        //});*@
+        @*$("#p").click(function () {
+          if ($("#booking").val() == "") {
+               alert("Fill Your Details");
+           }
+            else {
+               alert("Your Appointment is Booked Successfull");
+           }
         });
+    </script>*@
+             @*function display_alert()
+             {
+                 if ($("#p").val() == "") {
+                     alert("Please Enter All the Details");
+                 }
+                 else {
+                     $("#p").click(function () {
+               alert("Your Booking is Confirmed");
+          });
+
+                 }
+             }*@
+        @*</script>*@
 
 
-    </script>
 }

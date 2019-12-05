@@ -66,6 +66,7 @@ namespace miniproject.Controllers
         {
             var p3 = new Patient();
             ViewBag.DoctorId = DoctorId;
+            TempData["DoctorId"] = ViewBag.DoctorId;
             ViewBag.SlotId = ListSlots();
             return View(p3);
         }
@@ -73,7 +74,23 @@ namespace miniproject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreatePatientDetails(Patient p1)
         {
-
+            var DoctorId = Convert.ToInt32(TempData["DoctorId"]);
+            TempData["DoctorId"] = DoctorId;
+            var app = dbContext.patients.Where(c => c.DoctorId == DoctorId).ToList();
+            if (app.Count != 0)
+            {
+                foreach (var item in app)
+                {
+                    
+                  
+                    if (item.Date==p1.Date&&item.SlotId==p1.SlotId)
+                    {
+                        
+                            return Content("Sorry No Bookings Available To This Slot");
+                        
+                    }
+                }
+            }
 
             if (ModelState.IsValid)
             {
@@ -98,7 +115,7 @@ namespace miniproject.Controllers
                          Text = res.TimeSlots,
                          Value = res.SlotId.ToString()
                      }).ToList();
-            s.Insert(0, new SelectListItem { Text = "---select the Timeslot---", Value = "0", Disabled = true, Selected = true });
+            s.Insert(0, new SelectListItem { Text = "---select the Timeslot---", Value = "0", Disabled = false, Selected = false });
             return s;
         }
 
@@ -113,42 +130,16 @@ namespace miniproject.Controllers
         }
         public ActionResult ViewAppointments()
         {
-            var patients = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).ToList();
-            return View(patients);
+            var patients = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).Include(c=>c.Employee).ToList();
+            if (patients != null)
+            {
+                return View(patients);
+            }
 
+            else
+                return Content("No Appointments");
         }
 
-        //[HttpGet]
-
-        //public ActionResult DeleteAppointmentDetails(int id)
-        //{
-
-        //    var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d=>d.Employee).Include(c=>c.Slot).SingleOrDefault(c => c.PatientId == id);
-        //    if (patientDel != null)
-        //    {
-
-        //        ViewBag.SlotId = ListSlots();
-        //        return View(patientDel);
-        //    }
-
-        //    return HttpNotFound("Your Appointments Are Not Found");
-        //}
-
-        [HttpPost]
-        [ValidateAntiForgeryToken()]
-
-        public ActionResult DeleteAppointmentDetails(Patient patientFromView)
-        {
-
-            var patientDel = dbContext.patients.Include(d => d.Doctor).Include(d => d.Employee).Include(c => c.Slot).SingleOrDefault(c => c.PatientId == patientFromView.PatientId);
-
-            dbContext.patients.Remove(patientDel);
-            dbContext.SaveChanges();
-            return RedirectToAction("Index", "Patients");
-
-
-
-        }
         [ValidateAntiForgeryToken()]
         public ActionResult DeleteAppointmentDetails(int id)
         {
@@ -164,6 +155,8 @@ namespace miniproject.Controllers
 
             return HttpNotFound("Your Appointments Are Not Found");
         }
+      
+       
 
     }
     }
