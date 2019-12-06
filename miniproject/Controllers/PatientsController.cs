@@ -38,7 +38,10 @@ namespace miniproject.Controllers
             return View();
         }
 
+        public PatientsController()
+        {
 
+        }
 
         public ActionResult SearchDoctor(int? LocationId, string Specialization)
         {
@@ -46,6 +49,7 @@ namespace miniproject.Controllers
             ViewBag.Locations = new SelectList(dbContext.locations.ToList(), "LocationId", "City");
 
             DoctorViewModel model = new DoctorViewModel();
+            
             if (LocationId.HasValue)
             {
                 ViewBag.Doctors = new SelectList(dbContext.doctors.Where(c => c.LocationId == LocationId).DistinctBy(x => x.Specialization).ToList(), "Specialization", "Specialization");
@@ -86,12 +90,14 @@ namespace miniproject.Controllers
                     if (item.Date==p1.Date&&item.SlotId==p1.SlotId)
                     {
                         
-                            return Content("Sorry No Bookings Available To This Slot");
+                            return View("DisplayBookingMessage");
                         
                     }
                 }
             }
 
+
+            
             if (ModelState.IsValid)
             {
                 var res = patientDetails.CreatePatient(p1);
@@ -103,7 +109,10 @@ namespace miniproject.Controllers
         }
 
 
-
+        public ActionResult DisplayBookingMessage()
+        {
+            return View();
+        }
 
 
         [NonAction]
@@ -128,38 +137,31 @@ namespace miniproject.Controllers
             return View(p);
 
         }
-        public ActionResult ViewAppointments()
-        {
-            var patients = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).Include(c=>c.Employee).ToList();
-            if (patients != null)
-            {
-                return View(patients);
-            }
-
-            else
-                return Content("No Appointments");
-        }
-
         [ValidateAntiForgeryToken()]
         public ActionResult DeleteAppointmentDetails(int id)
         {
             var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
+
             if (patientDel != null)
             {
 
                 ViewBag.SlotId = ListSlots();
                 dbContext.patients.Remove(patientDel);
                 dbContext.SaveChanges();
-                return RedirectToAction("Index", "Patients");
+                return RedirectToAction("Index", "Home");
             }
 
             return HttpNotFound("Your Appointments Are Not Found");
         }
+
+
+
+    }
       
        
 
     }
-    }
+    
 
 
 

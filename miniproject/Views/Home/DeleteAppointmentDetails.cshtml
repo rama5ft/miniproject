@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "DeleteAppointmentDetails";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
 <h2>DeleteAppointmentDetails</h2>
@@ -29,7 +29,7 @@
             @Html.DisplayFor(model => model.Doctor.DoctorName)
         </dd>
 
-       
+
 
         <dt>
             @Html.DisplayNameFor(model => model.Slot.TimeSlots)
@@ -105,4 +105,3 @@
         </div>
     }
 </div>
-

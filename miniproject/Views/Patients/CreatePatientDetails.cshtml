@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "CreatePatientDetails";
+    Layout = "~/Views/Shared/_HomeLayoutAllpages.cshtml";
 }
 <head>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -112,36 +113,7 @@
 </body>
 
 @section scripts{
-    @Scripts.Render("~/ bundles/queryval")
-    @*<script>*@
-
-    @*//$(document).ready(function () {
-        //    $("#p").click(function () {
-        //        alert("Your Booking is Confirmed");
-        //    });
-        //});*@
-        @*$("#p").click(function () {
-          if ($("#booking").val() == "") {
-               alert("Fill Your Details");
-           }
-            else {
-               alert("Your Appointment is Booked Successfull");
-           }
-        });
-    </script>*@
-             @*function display_alert()
-             {
-                 if ($("#p").val() == "") {
-                     alert("Please Enter All the Details");
-                 }
-                 else {
-                     $("#p").click(function () {
-               alert("Your Booking is Confirmed");
-          });
-
-                 }
-             }*@
-        @*</script>*@
-
+    @Scripts.Render("~/ bundles/jqueryval")
+   
 
 }

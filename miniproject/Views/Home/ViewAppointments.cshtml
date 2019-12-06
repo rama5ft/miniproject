@@ -1,0 +1,121 @@
+﻿@model IEnumerable<miniproject.Models.Patient>
+
+@{
+    ViewBag.Title = "ViewAppointments";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<h2>ViewAppointments</h2>
+<html>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor.DoctorName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor.Specialization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SapId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Doctor.HospitalAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slot.TimeSlots)
+            </th>
+            <th>Delete</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            using (Html.BeginForm("DeleteAppointmentDetails", "Home", new { id = item.PatientId }))
+
+            {
+
+                @Html.AntiForgeryToken()
+
+                <tr>
+
+                    <td>@item.Doctor.DoctorName</td>
+
+                    <td>@item.Doctor.Specialization</td>
+
+                    <td>@item.FullName</td>
+
+                    <td>@item.EmailId</td>
+
+                    <td>@item.SapId</td>
+
+                    <td>@item.Age</td>
+                    <td>@item.MobileNumber</td>
+                    <td>@item.Date</td>
+
+                    <td>@item.Doctor.HospitalAddress</td>
+
+
+
+                    <td>@item.Slot.TimeSlots</td>
+
+                    <td>
+                        <input type=submit value=Delete
+                               onclick="return confirm('Are you sure you want to delete record with id=@item.PatientId');" />
+                    </td>
+
+                </tr>
+
+            }
+
+        }
+
+
+
+    </table>
+
+</body>
+
+</html>
+
+@section scripts{
+
+
+
+    <script>
+
+
+
+        $(document).ready(function () {
+
+            $("#item.PatientId").click(function () {
+
+                alert("Are you want to delete?");
+
+            });
+
+        });
+
+
+
+
+
+    </script>
+
+
+}

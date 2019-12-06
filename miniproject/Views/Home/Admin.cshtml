@@ -3,10 +3,20 @@
     ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
-<h2>Hi!!!</h2>
+<br />
+<h2> Admin Page</h2>
+
+<br />
+<center>
+    <button>@Html.ActionLink("EmployeesList", "ListEmployee", "Home")</button>
 
 
 
+    <button>@Html.ActionLink("DoctorsList", "ListDoctor", "Home")</button>
 
-<button>@Html.ActionLink("All Employees","ListEmployee","Home")</button>
-<button>@Html.ActionLink("DoctorsList","ListDoctors","Home")</button>
+
+
+    <button>@Html.ActionLink("View Appointments", "ViewAppointments", "Home")</button>
+</center>
+
+    

@@ -1,31 +1,58 @@
 ﻿@model miniproject.Models.Patient
 @{
     ViewBag.Title = "AfterLogin";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_HomeLayoutAllpages.cshtml";
 }
 <center>
     <p style="font-family:'Times New Roman';">
         <h2><b>Welcome To HCL HealthCare</b> </h2>
-</p>
+    </p>
 </center>
+<div style="background-image: url(/Images/photo-1559019727-963e0a4eab74.jpg);background-repeat:repeat;background-size:auto">
 
 
 
-@if (Session["LogedUserFullname"] != null)
-{
-    <text>
-<p style="font-family:Arial Black;">
-    Welcome @Session["LogedUserFullname"].ToString() !
-</p>
-    </text>
-}
+
+    @if (Session["LogedUserFullname"] != null)
+    {
+        <text>
+            <p style="font-family:Arial Black;">
+                Welcome @Session["LogedUserFullname"].ToString() !
+            </p>
+        </text>
+    }
+    <br />
 
 
-<br />
 
-<table>
-    <tr>
-        <td> <button>@Html.ActionLink("For Appointment", "SearchDoctor", "patients", null, new { @class = "btn btn - Success" })</button></td> 
-        <td><button>@Html.ActionLink("ViewAppointments", "ViewAppointments", "patients",new { @class = "btn btn-Primary" })</button></td>
-    </tr>
-</table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <center>
+        <table>
+            <tr>
+                <td> <button style="border-color:blue">@Html.ActionLink("For Appointment", "SearchDoctor", "patients", null, new { @class = "btn btn - Success" })</button></td>
+
+            </tr>
+        </table>
+    </center>
+    <br />
+    <br />
+    <br />
+
+
+</div>

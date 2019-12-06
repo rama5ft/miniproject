@@ -1,9 +1,10 @@
 ﻿@model miniproject.Models.Patient
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_HomeLayoutAllpages.cshtml";
 }
 <br />
+
 <h2>Booking Details</h2>
 
 
@@ -12,26 +13,28 @@
 <table class="table table-bordered table-hover">
     @if (Model != null)
     {
-        <tr>
-            <th> DoctorName</th>
-            <th>Specialization</th>
-            <th>Patient Name</th>
-            <th>EmailId</th>
-            <th>Age</th>
-            <th>SapId</th>
-            <th>Location</th>
-            <th>Mobile Number</th>
-            <th>TimeSlot</th>
-        </tr>
+    <tr>
+        <th> DoctorName</th>
+        <th>Specialization</th>
+        <th>Patient Name</th>
+        <th>EmailId</th>
+        <th>Age</th>
+        <th>SapId</th>
+        <th>Location</th>
+        <th>Mobile Number</th>
+        <th>Date</th>
+        <th>TimeSlot</th>
+    </tr>
         <tr>
             <td>@Model.Doctor.DoctorName</td>
             <td>@Model.Doctor.Specialization</td>
             <td>@Model.FullName</td>
             <td>@Model.EmailId</td>
             <td>@Model.Age</td>
-            <td>@Model.SapId</td>
+            <td>@Model.SapId</td>.
             <td>@Model.Doctor.HospitalAddress</td>
             <td>@Model.MobileNumber</td>
+            <td>@Model.Date</td>
             <td>@Model.Slot.TimeSlots</td>
         </tr>
     }
@@ -47,10 +50,6 @@
 
 <div>
     @Html.ActionLink("BackToList", "Index", "Home")
-</div>
-
-<div>
-    <button>@Html.ActionLink("Delete Your Appointment", "DeleteAppointmentDetails", "patients")</button>
 </div>
 
 

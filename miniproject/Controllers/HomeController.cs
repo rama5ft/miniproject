@@ -67,7 +67,7 @@ namespace miniproject.Controllers
                 Session["LogedUserID"] = log.EmailId.ToString();
                 Session["LogedUserFullname"] = log.Name.ToString();
 
-                if (log.Password == login.Password &&(log.EmailId==login.UserName)||(log.SapId==login.UserName))
+                if (log.Password == login.Password && (log.EmailId == login.UserName) || (log.SapId == login.UserName))
                 {
                     loginrepositary.LoginValidation(login);
                     return RedirectToAction("AfterLogin", "Home");
@@ -78,7 +78,7 @@ namespace miniproject.Controllers
                     return HttpNotFound();
             }
             else
-                return Content("Data Not found");
+                return View();
         }
 
 
@@ -117,7 +117,7 @@ namespace miniproject.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult AddDoctor(Doctor doctorFromView)
         {      
             dbContext.doctors.Add(doctorFromView);
@@ -144,11 +144,55 @@ namespace miniproject.Controllers
             var emp = dbContext.employees.ToList();
             return View(emp);
         }
+        //[Authorize(Roles = "Admin")]
         public ActionResult ListDoctor()
         {
             var doc = dbContext.doctors.Include(c=>c.Location).ToList();
             return View(doc);
         }
+        //[Authorize(Roles = "Admin")]
+        public ActionResult ViewAppointments()
+        {
+            var patients = dbContext.patients.Include(m => m.Doctor).Include(m => m.Slot).Include(c => c.Employee).ToList();
+            if (patients != null)
+            {
+                return View(patients);
+            }
+
+            else
+                return Content("No Appointments");
+        }
+
+        [ValidateAntiForgeryToken()]
+        public ActionResult DeleteAppointmentDetails(int id)
+        {
+            var patientDel = dbContext.patients.SingleOrDefault(c => c.PatientId == id);
+
+            if (patientDel != null)
+            {
+
+                ViewBag.SlotId = ListSlots();
+                dbContext.patients.Remove(patientDel);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+
+            return HttpNotFound("Your Appointments Are Not Found");
+        }
+
+        [NonAction]
+        public IEnumerable<SelectListItem> ListSlots()
+        {
+            var s = (from res in dbContext.slots.AsEnumerable()
+                     select new SelectListItem
+                     {
+                         Text = res.TimeSlots,
+                         Value = res.SlotId.ToString()
+                     }).ToList();
+            s.Insert(0, new SelectListItem { Text = "---select the Timeslot---", Value = "0", Disabled = false, Selected = false });
+            return s;
+        }
+
     }
 }
 

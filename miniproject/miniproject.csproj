@@ -353,7 +353,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Slot.cs" />
-    <Compile Include="Models\Specialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AllRepository.cs" />
     <Compile Include="Startup.cs" />
@@ -413,10 +412,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\085633618875cf1.jpg" />
     <Content Include="Images\136934.jpg" />
     <Content Include="Images\136939.jpg" />
+    <Content Include="Images\13971.jpg" />
+    <Content Include="Images\14019.jpg" />
     <Content Include="Images\44ba2a5d-9c88-4c4e-990b-847ed86c3feb-original.jpeg" />
+    <Content Include="Images\693674-top-hospital-wallpapers-1920x1080-full-hd.jpg" />
     <Content Include="Images\april.jpg" />
+    <Content Include="Images\backgroundsimg-cyan-wall26-vintage-background-removable-wall-mural-self-adhesive-large-wallpaper-video-product-zVMVM.jpg" />
     <Content Include="Images\banner_image2.jpg" />
     <Content Include="Images\Best Hospitals 2016.jpg" />
     <Content Include="Images\cal 2.jpg" />
@@ -439,6 +443,8 @@
     <Content Include="Images\login1.png" />
     <Content Include="Images\login2.png" />
     <Content Include="Images\login3.png" />
+    <Content Include="Images\photo-1559019727-963e0a4eab74.jpg" />
+    <Content Include="Images\photo-1560582861-45078880e48e.jpg" />
     <Content Include="Images\steps\bookcrop.png" />
     <Content Include="Images\steps\doccrop.png" />
     <Content Include="Images\steps\loccrop1.png" />
@@ -511,11 +517,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Patients\PDetails.cshtml" />
     <Content Include="Views\Home\AfterLogin.cshtml" />
-    <Content Include="Views\Patients\DeleteAppointmentDetails.cshtml" />
     <Content Include="Views\Patients\ViewAppointments.cshtml" />
     <Content Include="Views\Shared\_HomeLayoutAllPages.cshtml" />
     <Content Include="Views\Home\ListEmployee.cshtml" />
     <Content Include="Views\Home\ListDoctor.cshtml" />
+    <Content Include="Views\Patients\DisplayBookingMessage.cshtml" />
+    <Content Include="Views\Home\ViewAppointments.cshtml" />
+    <Content Include="Views\Home\DeleteAppointmentDetails.cshtml" />
+    <Content Include="Views\Shared\_loginPartialAllPages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

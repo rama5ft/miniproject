@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "DisplayBookingMessage";
+}
+<br />
+<br />
+<center>
+    <h2 style="color:darkred"> Sorry No Bookings are Available For This Slot. Kindly Choose another Slot</h2>
+
+
+    <h3 style="color:chocolate">To Book Again Please  Press the Below Link</h3>
+</center>
+<div class="form-group">
+    <button> @Html.ActionLink("Book Appointment", "SearchDoctor", "Patients", new { @class = "btn btn-Success" })</button>
+</div>
