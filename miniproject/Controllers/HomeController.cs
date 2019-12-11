@@ -174,7 +174,7 @@ namespace miniproject.Controllers
                 ViewBag.SlotId = ListSlots();
                 dbContext.patients.Remove(patientDel);
                 dbContext.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("ViewAppointments", "Home");
             }
 
             return HttpNotFound("Your Appointments Are Not Found");
